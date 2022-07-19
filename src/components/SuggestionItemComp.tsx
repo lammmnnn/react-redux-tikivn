@@ -1,14 +1,20 @@
 import React from 'react';
 import { useAppDispatch } from '../app/hooks';
 import {
-    increment
+    addItemID
 } from '../features/counter/counterSlice';
 
 export function SuggestionItemComp() {
     const dispatch = useAppDispatch();
+
+    const addingItem = (e: React.MouseEvent<HTMLElement>) => {
+        dispatch(addItemID(
+            e.currentTarget.getAttribute("data-view-index")
+        ))
+    }
     return (
         <>
-            <a onClick={() => dispatch(increment())} className="col-6 col-lg-2 p-2" href="#addtocart">
+            <a data-view-index="0" onClick={ addingItem } className="col-6 col-lg-2 p-2" href="#addtocart">
                 <div className="flex-y">
                     <div className="thumbnail">
                         <img src={require('../img/suggest/suggest1.png')} alt='' />
@@ -25,7 +31,7 @@ export function SuggestionItemComp() {
                     </div>
                 </div>
             </a>
-            <a onClick={() => dispatch(increment())} className="col-6 col-lg-2 p-2" href="#addtocart">
+            <a data-view-index="1" onClick={ addingItem } className="col-6 col-lg-2 p-2" href="#addtocart">
                 <div className="flex-y">
                     <div className="thumbnail">
                         <img src={require('../img/suggest/suggest2.jpg')} alt='' />
@@ -41,7 +47,7 @@ export function SuggestionItemComp() {
                     </div>
                 </div>
             </a>
-            <a onClick={() => dispatch(increment())} className="col-6 col-lg-2 p-2" href="#addtocart">
+            <a data-view-index="2" onClick={ addingItem } className="col-6 col-lg-2 p-2" href="#addtocart">
                 <div className="flex-y">
                     <div className="thumbnail">
                         <img src={require('../img/suggest/suggest3.jpg')} alt='' />
@@ -57,7 +63,7 @@ export function SuggestionItemComp() {
                     </div>
                 </div>
             </a>
-            <a onClick={() => dispatch(increment())} className="col-6 col-lg-2 p-2" href="#addtocart">
+            <a data-view-index="3" onClick={ addingItem } className="col-6 col-lg-2 p-2" href="#addtocart">
                 <div className="flex-y">
                     <div className="thumbnail">
                         <img src={require('../img/suggest/suggest4.jpg')} alt='' />
@@ -73,7 +79,7 @@ export function SuggestionItemComp() {
                     </div>
                 </div>
             </a>
-            <a onClick={() => dispatch(increment())} className="col-6 col-lg-2 p-2" href="#addtocart">
+            <a data-view-index="4" onClick={ addingItem } className="col-6 col-lg-2 p-2" href="#addtocart">
                 <div className="flex-y">
                     <div className="thumbnail">
                         <img src={require('../img/suggest/suggest5.jpg')} alt='' />
@@ -89,7 +95,7 @@ export function SuggestionItemComp() {
                     </div>
                 </div>
             </a>
-            <a onClick={() => dispatch(increment())} className="col-6 col-lg-2 p-2" href="#addtocart">
+            <a data-view-index="5" onClick={ addingItem } className="col-6 col-lg-2 p-2" href="#addtocart">
                 <div className="flex-y">
                     <div className="thumbnail">
                         <img src={require('../img/suggest/suggest6.png')} alt='' />
@@ -105,7 +111,7 @@ export function SuggestionItemComp() {
                     </div>
                 </div>
             </a>
-            <a onClick={() => dispatch(increment())} className="col-6 col-lg-2 p-2" href="#addtocart">
+            <a data-view-index="6" onClick={ addingItem } className="col-6 col-lg-2 p-2" href="#addtocart">
                 <div className="flex-y">
                     <div className="thumbnail">
                         <img src={require('../img/suggest/suggest7.jpg')} alt='' />
@@ -122,7 +128,7 @@ export function SuggestionItemComp() {
                     </div>
                 </div>
             </a>
-            <a onClick={() => dispatch(increment())} className="col-6 col-lg-2 p-2" href="#addtocart">
+            <a data-view-index="7" onClick={ addingItem } className="col-6 col-lg-2 p-2" href="#addtocart">
                 <div className="flex-y">
                     <div className="thumbnail">
                         <img src={require('../img/suggest/suggest8.jpg')} alt='' />
@@ -138,7 +144,7 @@ export function SuggestionItemComp() {
                     </div>
                 </div>
             </a>
-            <a onClick={() => dispatch(increment())} className="col-6 col-lg-2 p-2" href="#addtocart">
+            <a data-view-index="8" onClick={ addingItem } className="col-6 col-lg-2 p-2" href="#addtocart">
                 <div className="flex-y">
                     <div className="thumbnail">
                         <img src={require('../img/suggest/suggest9.png')} alt='' />
@@ -154,7 +160,7 @@ export function SuggestionItemComp() {
                     </div>
                 </div>
             </a>
-            <a onClick={() => dispatch(increment())} className="col-6 col-lg-2 p-2" href="#addtocart">
+            <a data-view-index="9" onClick={ addingItem } className="col-6 col-lg-2 p-2" href="#addtocart">
                 <div className="flex-y">
                     <div className="thumbnail">
                         <img src={require('../img/suggest/suggest10.jpg')} alt='' />
@@ -170,7 +176,7 @@ export function SuggestionItemComp() {
                     </div>
                 </div>
             </a>
-            <a onClick={() => dispatch(increment())} className="col-6 col-lg-2 p-2" href="#addtocart">
+            <a data-view-index="10" onClick={ addingItem } className="col-6 col-lg-2 p-2" href="#addtocart">
                 <div className="flex-y">
                     <div className="thumbnail">
                         <img src={require('../img/suggest/suggest11.jpg')} alt='' />
@@ -186,7 +192,7 @@ export function SuggestionItemComp() {
                     </div>
                 </div>
             </a>
-            <a onClick={() => dispatch(increment())} className="col-6 col-lg-2 p-2" href="#addtocart">
+            <a data-view-index="11" onClick={ addingItem } className="col-6 col-lg-2 p-2" href="#addtocart">
                 <div className="flex-y">
                     <div className="thumbnail">
                         <img src={require('../img/suggest/suggest12.jpg')} alt='' />
@@ -205,3 +211,4 @@ export function SuggestionItemComp() {
         </>
     )
 }
+

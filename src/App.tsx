@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import {HeaderComp} from "./components/HeaderComp";
 import {DealListComp} from "./components/DealListComp";
 import {SuggestionItemComp} from "./components/SuggestionItemComp";
@@ -10,7 +9,7 @@ function App() {
       <div className='home-page'>
         <HeaderComp />
         <main>
-          <div className="contain container-fluid mb-2 pt-2 pt-lg-3">
+          <div className="contain container mb-2 pt-2 pt-lg-3">
             <div className="banner-wrapper row justify-content-around">
               <div className="banner col-12 col-lg-8 pl-0 pr-0" id="banner-1">
                 <img className="img d-none d-lg-block" src={require('./img/banner/banner1.png')} alt='' />
@@ -49,22 +48,22 @@ function App() {
                 </div>
             </div>
           </div>
-          <div className="container-fluid pl-0 pr-0">
+          <div className="container">
             <div className="Ad-wrap row align-items-center">
-              <div></div>
-              <a href="#ad1" className="col-4 col-lg-2 pr-1 p-lg-1">
+              <div className="d-block d-lg-none"></div>
+              <a href="#ad1" className="col-4 col-lg-2 pr-1 pr-lg-2 pl-lg-0">
                 <img className="img" src={require('./img/ad/ad_lg1.png')} alt='' />
               </a>
               <a href="#ad2" className="col-4 col-lg-8 pl-0 pr-0">
                 <img className="img d-none d-lg-block h-100" src={require('./img/ad/ad_lg2.png')} alt='' />
                 <img className="img d-lg-none" src={require('./img/ad/ad_lg2_mobile.png')} alt='' />
               </a>
-              <a href="#ad3" className="col-4 col-lg-2 pl-1 p-lg-1">
+              <a href="#ad3" className="col-4 col-lg-2 pl-1 pl-lg-2 pr-lg-0">
                 <img className="img" src={require('./img/ad/ad_lg3.png')} alt='' />
               </a>
             </div>
           </div>
-          <div className="container-fluid mt-lg-2 pl-0 pr-0 pl-lg-3 pr-lg-3">
+          <div className="container mt-lg-2 pl-0 pr-0 pl-lg-3 pr-lg-3">
             <div className="quicklink-wrap row pt-3 pb-3 justify-content-lg-between flex-nowrap">
               <a href="#link1" className="item col-3 col-lg-1 pl-0 pr-0 d-flex flex-column align-items-center">
                 <img src={require('./img/qlink/qlink1.gif')} alt='' />
@@ -108,7 +107,7 @@ function App() {
               </a>
             </div>
           </div>
-          <div className="container-fluid mt-2 pl-0 pr-0 pl-lg-3 pr-lg-3">
+          <div className="container mt-2 pl-0 pr-0 pl-lg-3 pr-lg-3">
             <div className="suggestion-wrap">
               <div className="header">
                 <h2>Gợi Ý Hôm Nay</h2>
