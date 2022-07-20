@@ -1,17 +1,12 @@
 import React from 'react';
 import {useAppDispatch, useAppSelector} from "../app/hooks";
-import {navigatePage, selectItemList} from "../features/counter/counterSlice";
-import {ItemRenderMainComp} from "./ItemRenderMainComp";
+import {selectItemList} from "../features/counter/counterSlice";
 import {ItemRenderCartComp} from "./ItemRenderCartComp";
 
 export function CartPageComp() {
     const itemList = useAppSelector(selectItemList);
-    const dispatch = useAppDispatch();
-    const navigatingPage = (e: React.MouseEvent<HTMLElement>) => {
-        dispatch(navigatePage("main"))
-    }
-
     let cartDisplayDiv;
+
     if (itemList.length > 0) {
         // @ts-ignore
         cartDisplayDiv = itemList.map((item) =>
@@ -24,7 +19,7 @@ export function CartPageComp() {
             <div className="d-flex flex-column align-items-center">
                 <img src={require('../img/empty_cart.png')} alt='' />
                 <p className="mt-4 mb-4">Bạn chưa có sản phẩm nào trong giỏ hàng</p>
-                <a onClick={navigatingPage} href="#home">Tiếp Tục Mua Sắm</a>
+                <a href="/home">Tiếp Tục Mua Sắm</a>
             </div>
     }
 
