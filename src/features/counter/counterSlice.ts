@@ -5,12 +5,14 @@ import { fetchCount } from './counterAPI';
 export interface CounterState {
   value: number;
   itemList: [];
+  currentPage: string;
   status: 'idle' | 'loading' | 'failed';
 }
 
 const initialState: CounterState = {
   value: 0,
   itemList: [],
+  currentPage: "main",
   status: 'idle',
 };
 
@@ -38,9 +40,15 @@ export const counterSlice = createSlice({
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-
+      let isAlreadyAdded = false;
+      for (let i = 0; i < state.itemList.length; i++) {
+        // @ts-ignore
+        if (state.itemList[i].index == action.payload.index) {
+          isAlreadyAdded = true;
+        }
+      }
       // @ts-ignore
-      if(state.itemList.indexOf(action.payload) == -1) {
+      if(!isAlreadyAdded) {
         // @ts-ignore
         state.itemList.push(action.payload);
         state.value += 1;
@@ -48,6 +56,18 @@ export const counterSlice = createSlice({
 
     },
     decrement: (state) => {
+      state.value -= 1;
+    },
+
+    navigatePage: (state, action) => {
+      state.currentPage = action.payload;
+    },
+
+    removeItem: (state, action) => {
+      let i = 0;
+      // @ts-ignore
+      while (action.payload != state.itemList[i].index) i++;
+      state.itemList.splice(i, 1);
       state.value -= 1;
     },
     // Use the PayloadAction type to declare the contents of `action.payload`
@@ -72,13 +92,16 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { addItemID, decrement, incrementByAmount } = counterSlice.actions;
+export const { addItemID, decrement, navigatePage, removeItem, incrementByAmount } = counterSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 export const selectCount = (state: RootState) => state.counter.value;
 
+export const selectCurrentPage = (state: RootState) => state.counter.currentPage;
+
+export const selectItemList = (state: RootState) => state.counter.itemList;
 // We can also write thunks by hand, which may contain both sync and async logic.
 // Here's an example of conditionally dispatching actions based on current state.
 export const incrementIfOdd =
