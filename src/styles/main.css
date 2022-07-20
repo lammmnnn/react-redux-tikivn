@@ -161,6 +161,10 @@ img {
     font-size: 13px;
 }
 
+.item-action span {
+    cursor: pointer;
+}
+
 .img {
     width: 100%;
     border-radius: 4px;
