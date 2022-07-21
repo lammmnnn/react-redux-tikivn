@@ -175,10 +175,6 @@ img {
     width: 20%;
 }
 
-.header-left {
-    width: 50%;
-}
-
 .navigation {
     margin-left: auto;
 }
@@ -205,6 +201,17 @@ img {
 .deal {
     padding: 12px;
     z-index: 1;
+}
+
+.deal-countdown span {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.6;
+    margin: 0px 4px;
+    padding: 0px 3px;
+    background-color: rgb(255, 66, 78);
+    border-radius: 4px;
+    color: white;
 }
 
 .price-discount__price {
@@ -248,11 +255,31 @@ img {
     border-radius: 4px;
     text-align: center;
     min-height: 96px;
-    overflow-x: auto;
+    overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
     display: none;
+}
+.slick-cus-previous, .slick-cus-next {
+    position: relative;
+    min-height: 100px;
+    min-width: 28px;
+    z-index: 1;
+    align-items: center;
+}
+.slick-cus-previous > img, .slick-cus-next > img {
+    position: absolute;
+    min-height: 25px;
+}
+
+.slick-cus-previous {
+    left: 8px;
+    transform: scaleX(-1);
+}
+
+.slick-cus-next {
+    right: 8px;
 }
 
 .w-30 {
@@ -375,6 +402,10 @@ img {
     }
     .infinite-scroll img {
         height: 130px;
+    }
+
+    .quicklink-wrap {
+        overflow-x: auto;
     }
 }
 

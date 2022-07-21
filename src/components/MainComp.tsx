@@ -1,8 +1,23 @@
 import React from 'react';
 import {DealListComp} from "./DealListComp";
 import {SuggestionItemComp} from "./SuggestionItemComp";
+import {QuicklinkComp} from "./QuicklinkComp";
+import Countdown from "react-countdown";
+import ReactDOM from 'react-dom';
 
 export function MainComp() {
+    const formatTime = (time : number) => {
+        return String(time).padStart(2, '0');
+    }
+    // @ts-ignore
+    const renderer = ({ hours, minutes, seconds }) => {
+            // Render a countdown
+            return <><span>{formatTime(hours)}</span>
+                :
+                <span>{formatTime(minutes)}</span>
+                :
+                <span>{formatTime(seconds)}</span></>;
+    }
 
     return (
         <main>
@@ -24,6 +39,12 @@ export function MainComp() {
                                 <img width="21" src="https://frontend.tikicdn.com/_desktop-next/static/img/dealFlashIcon.svg"
                                      alt="flash deal" />
                                 <img src="https://frontend.tikicdn.com/_desktop-next/static/img/homnay.svg" alt="flash deal" />
+                            </div>
+                            <div className="deal-countdown d-flex align-items-center">
+                                <Countdown
+                                    date={Date.now() + 86300000}
+                                    renderer={renderer}
+                                />
                             </div>
                             <div className="navigation">
                                 <a href="#xemthem">Xem thêm</a>
@@ -61,47 +82,8 @@ export function MainComp() {
                 </div>
             </div>
             <div className="container mt-lg-2 pl-0 pr-0 pl-lg-3 pr-lg-3">
-                <div className="quicklink-wrap row pt-3 pb-3 justify-content-lg-between flex-nowrap">
-                    <a href="#link1" className="item col-3 col-lg-1 pl-0 pr-0 d-flex flex-column align-items-center">
-                        <img src={require('../img/qlink/qlink1.gif')} alt='' />
-                        <span>Mua sắm có lời</span>
-                    </a>
-                    <a href="#link2" className="item col-3 col-lg-1 pl-0 pr-0 d-flex flex-column align-items-center">
-                        <img src={require('../img/qlink/qlink2.png')} alt='' />
-                        <span>Siêu sale 7.7</span>
-                    </a>
-                    <a href="#link3" className="item col-3 col-lg-1 pl-0 pr-0 d-flex flex-column align-items-center">
-                        <img src={require('../img/qlink/qlink3.png')} alt='' />
-                        <span>Đi chợ siêu tốc</span>
-                    </a>
-                    <a href="#link4" className="item col-3 col-lg-1 pl-0 pr-0 d-flex flex-column align-items-center">
-                        <img src={require('../img/qlink/qlink4.png')} alt='' />
-                        <span>Đóng tiền, nạp thẻ</span>
-                    </a>
-                    <a href="#link5" className="item col-3 col-lg-1 pl-0 pr-0 d-flex flex-column align-items-center">
-                        <img src={require('../img/qlink/qlink5.png')} alt='' />
-                        <span>Mua bán ASA/XU</span>
-                    </a>
-                    <a href="#link6" className="item col-3 col-lg-1 pl-0 pr-0 d-flex flex-column align-items-center">
-                        <img src={require('../img/qlink/qlink6.png')} alt='' />
-                        <span>Mã giảm giá</span>
-                    </a>
-                    <a href="#link7" className="item d-none col-lg-1 pl-0 pr-0 d-lg-flex flex-column align-items-center">
-                        <img src={require('../img/qlink/qlink7.png')} alt='' />
-                        <span>Bảo hiểm Tiki360</span>
-                    </a>
-                    <a href="#link8" className="item d-none col-lg-1 pl-0 pr-0 d-lg-flex flex-column align-items-center">
-                        <img src={require('../img/qlink/qlink8.png')} alt='' />
-                        <span>Giảm đến 50%</span>
-                    </a>
-                    <a href="#link9" className="item d-none col-lg-1 pl-0 pr-0 d-lg-flex flex-column align-items-center">
-                        <img src={require('../img/qlink/qlink9.png')} alt='' />
-                        <span>Hoàn tiền 15%</span>
-                    </a>
-                    <a href="#link10" className="item d-none col-lg-1 pl-0 pr-0 d-lg-flex flex-column align-items-center">
-                        <img src={require('../img/qlink/qlink10.png')} alt='' />
-                        <span>Ưu đãi thanh toán</span>
-                    </a>
+                <div className="bg-white row flex-nowrap">
+                    <QuicklinkComp />
                 </div>
             </div>
             <div className="container mt-2 pl-0 pr-0 pl-lg-3 pr-lg-3">
